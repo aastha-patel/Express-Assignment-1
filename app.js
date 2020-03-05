@@ -14,23 +14,28 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
 
 app.get('/', function(req,res){
-    res.render('index',{});
+    res.render('index',{title: 'Home'});
 });
 
 
 app.get('/about', function(req,res){
-    res.render('about',{});
+    res.render('about',{title: 'About'});
 });
 
 app.get('/gallery', function(req,res){
-    res.render('gallery',{});
+    res.render('gallery',{title: 'Gallery'});
 });
 
 app.get('/contact', function(req,res){
-    res.render('contact',{});
+    res.render('contact',{title: 'Contact'});
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
+  });
 
 const port = process.env.PORT || 3000;
 

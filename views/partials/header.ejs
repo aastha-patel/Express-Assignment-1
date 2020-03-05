@@ -5,33 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>About</title>
+    <title><%= title %></title>
 
-    <link rel="stylesheet" type="text/css" href="css/portfolio.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
    
 
 </head>
+<style>
+    <%- include('portfolio.css') %>
+</style>
 <body>
     <aside>
         <nav>
            
             <img src="assets/camera.png" alt="logo"> 
-            <a href="/"><i class="material-icons md-36">home</i>
+            <a <% if(title == "Home") { %> class ="highlight" <% } %> href="/"><i class="material-icons md-36">home</i>
                 <p>Home</p>
             </a>
 
-            <a href="/about"><i class="material-icons md-36">person</i>
+            <a <% if(title == "About") { %> class ="highlight" <% } %> href="/about"><i class="material-icons md-36">person</i>
                 <p>About</p>
             </a>
 
-            <a href="/gallery"><i class="material-icons md-36">image</i>
+            <a <% if(title == "Gallery") { %> class ="highlight" <% } %> href="/gallery"><i class="material-icons md-36">image</i>
                 <p>Gallery</p>
             </a>
 
-            <a href="/contact"><i class="material-icons md-36">mail</i>
+            <a <% if(title == "Contact") { %> class ="highlight" <% } %> href="/contact"><i class="material-icons md-36">mail</i>
                 <p>Contact</p>
             </a>
 
